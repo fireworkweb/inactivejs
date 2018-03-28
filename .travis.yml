@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- 9
+- 8
+- 7
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+script:
+  - yarn dev
+  - yarn lint
+notifications:
+  slack:
+    on_success: change
