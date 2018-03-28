@@ -6,10 +6,11 @@ node_js:
 cache:
   yarn: true
   directories:
-    - "node_modules"
+  - node_modules
 script:
-  - yarn dev
-  - yarn lint
+- yarn dev
+- yarn lint
 notifications:
   slack:
     on_success: change
+    secure: Rl5nJT1VJNUvmyJR+f4CIEjHJsSpmJtBoqIH4OphTu4funivsdtyDTzL5LuaWR41f0T/cA9oWJavmiE5TKNCnSNAd1XB1tpptaIzKiTPOUd6o6EO4KJmyi6vnTAcXQPUhovgY6uu+UN3HDgc8tokFUhC/kslrlYWBqfHGBq9/6S1T+8diFGQ1xcxkoACUHyx3P+IxEeRVV04oynMyYZfKOBHR2W7a6f/+rGcJBk7fs9XdTXcT5S/RQvsLWRt6Cx2XOEPaUczXi7kGQ/OUJwNbw1TkIWgIGEKnsVMYtmpXaRWTpzwhy5EssuftOFxqNJqMYDI4VuJG+tvwPevbJ7x1IBReJ8RvcfasvRkM2pEEhY+stjd0ayj+FAnDSaruKPA4dfuHjRd4c1kXShvjwGe5AZU8jqPTX6WX/lbM4eAW+h2kqUAFbYYcu0/xkRAFI2b/rqckIh8EMfsIO2cEtDyAlahibvF153QvbEv53b49pjL1cacLC2g4gclOJne2a1RaIhmuNt9XZ5Dxna8bJXcE1Z36+VqiSjsZbeEFxbZ7KnK9wG8YEq9CLYC/JBJJAWVOCHKVeRpkOWcLqq397PsPo01rvTqiXvOOfHlJryWEGrBbFTylsq8A2qa1Ac7kBKdBXHx2q7DHcReyu5WF9jM+LXazqm1Xw53OWqGiI32p+M=

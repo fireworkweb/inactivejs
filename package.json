@@ -17,6 +17,13 @@
   },
   "author": "Firework Web & Mobile",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireworkweb/inactivejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fireworkweb/inactivejs/issues"
+  },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",

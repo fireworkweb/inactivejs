@@ -1,5 +1,7 @@
 # inactivejs
 
+[![Build Status](https://travis-ci.org/fireworkweb/inactivejs.svg?branch=develop)](https://travis-ci.org/fireworkweb/inactivejs)
+
 Detect when a user is idle. No dependencies, small footprint (2.35kb). Inspired by [Idle.js](https://github.com/shawnmclean/Idle.js)
 
 ## Usage
