@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>inactivejs Basic Example</title>
+</head>
+<body>
+    <div id="wrapper"></div>
+
+    <script src="../dist/index.js"></script>
+    <script type="text/javascript">
+        function addMessage (message) {
+            const wrapper = document.getElementById('wrapper');
+
+            const msg = document.createElement('p');
+            msg.innerText = message;
+
+            wrapper.appendChild(msg);
+        }
+
+        function onAway () {
+            addMessage('user is away! ', (new Date()).toString())
+        }
+
+        function onBack () {
+            addMessage('user is back! ', (new Date()).toString())
+        }
+
+        new inactivejs({
+            onAway: onAway,
+            onBack: onBack,
+            timeout: 1000,
+        });
+    </script>
+</body>
+</html>
