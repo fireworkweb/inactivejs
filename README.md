@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fireworkweb/inactivejs.svg?branch=develop)](https://travis-ci.org/fireworkweb/inactivejs)
 
-Detect when a user is idle. No dependencies, small footprint (2.35kb). Inspired by [Idle.js](https://github.com/shawnmclean/Idle.js)
+Detect when a user is idle or when he change tabs/apps. Small footprint package (5.5kb). Inspired by [Idle.js](https://github.com/shawnmclean/Idle.js)
 
 ## Usage
 
@@ -40,11 +40,21 @@ const inactiveInstance = new InactiveJS({
 });
 ```
 
-Options:
+Config options:
 
-- **timeout** (ms): How much time should wait
-- **onAway**: callback to be executed when the user is away
-- **onBack**: callback to be executed when the user is back
+- **timeout** (ms): how much time should wait
+- **onAway** (callback): callback to be executed when the user is away
+- **onBack** (callback): callback to be executed when the user is back
+- **onVisible** (callback): callback to be executed when the tab is visible
+- **onHidden** (callback): callback to be executed when the tab is hidden
+- **events** (array): events to listen for
+- **autoStart** (boolean): if start timer automatically
+- **throttle** (ms): ms to throttle the event listeners, undefined/false to disable it
+
+Available methods:
+
+- **start()**: if you configured autoStart to false, this method will start the timer
+- **stop()**: if needed, this will stop the timer
 
 ## License
 

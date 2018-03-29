@@ -2,6 +2,12 @@
   "name": "inactivejs",
   "version": "0.0.1",
   "description": "Detect when a user is idle or change tabs",
+  "keywords": [
+    "idle",
+    "inactive",
+    "inactivity",
+    "timer"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "webpack:base": "node_modules/webpack/bin/webpack.js --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -28,5 +34,8 @@
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
     "laravel-mix": "^2.1.11"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
   }
 }
