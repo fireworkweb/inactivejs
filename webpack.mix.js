@@ -6,7 +6,7 @@ mix
     .webpackConfig({
         output: {
             library: 'inactivejs',
-            libraryExport: "default",
+            libraryExport: 'default',
             libraryTarget: 'umd',
         },
     })

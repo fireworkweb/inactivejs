@@ -30,20 +30,23 @@ class inactivejs {
 
         this._visibilityEvent = () => this._visibilityChange();
 
-        this._eventMethod = throttle
-            ? _throttle(this._triggerActive.bind(this), this.throttle)
-            : this._triggerActive.bind(this);
+        this._eventMethod = _throttle(
+            this._triggerActive.bind(this),
+            throttle,
+        );
 
         if (typeof window === 'undefined' || typeof document === 'undefined') {
             throw new Error('window not available');
         }
 
-        autoStart && this.start();
+        if (autoStart) {
+            this.start();
+        }
     }
 
     start () {
         if (this._started) {
-            return ;
+            return;
         }
 
         this._started = true;
@@ -51,31 +54,36 @@ class inactivejs {
         if (this._checkIdle) {
             this._awayTimestamp = Date.now() + this.timeout;
 
-            this.events
-                .forEach(event =>
-                    window.addEventListener(event, this._eventMethod)
-                );
+            this.events.forEach(event =>
+                window.addEventListener(event, this._eventMethod)
+            );
 
             this._createTimeout();
         }
 
         if (this._checkVisibility) {
-            document.addEventListener('visibilitychange', this._visibilityEvent);
+            document.addEventListener(
+                'visibilitychange',
+                this._visibilityEvent,
+            );
         }
     }
 
     stop () {
-        this._started = false;
-
-        this._checkIdle && this.events
-            .forEach(event =>
+        if (this._checkIdle) {
+            this.events.forEach(event =>
                 window.removeEventListener(event, this._eventMethod)
             );
+        }
 
-        this._checkVisibility && document.removeEventListener(
-            'visibilitychange',
-            this._visibilityEvent,
-        );
+        if (this._checkVisibility) {
+            document.removeEventListener(
+                'visibilitychange',
+                this._visibilityEvent,
+            );
+        }
+
+        this._started = false;
     }
 
     _triggerActive () {
@@ -92,8 +100,8 @@ class inactivejs {
     }
 
     _validateAway () {
+        // not away, reset the timer
         if (Date.now() < this._awayTimestamp) {
-            // not away, reset the timer
             this._isAway = false;
             this._createTimeout();
 
@@ -101,7 +109,9 @@ class inactivejs {
         }
 
         clearTimeout(this.timer);
+
         this._isAway = true;
+
         this.onAway();
     }
 
@@ -113,13 +123,18 @@ class inactivejs {
         }
 
         let newTimeout = this._awayTimestamp - Date.now();
+
         this.timer = setTimeout(() => this._validateAway(), newTimeout);
     }
 
     _visibilityChange () {
-        document.hidden
-            ? this.onHidden()
-            : this.onVisible();
+        if (document.hidden) {
+            this.onHidden();
+        } else {
+            this.onVisible();
+        }
+
+        return true;
     }
 }
 

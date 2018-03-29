@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fireworkweb/inactivejs.svg?branch=develop)](https://travis-ci.org/fireworkweb/inactivejs)
 
-Detect when a user is idle or when he change tabs/apps. Small footprint package (5.5kb). Inspired by [Idle.js](https://github.com/shawnmclean/Idle.js)
+Detect when a user is idle or when he change tabs/apps. Small footprint package (5.47kb). Inspired by [Idle.js](https://github.com/shawnmclean/Idle.js)
 
 ## Usage
 
