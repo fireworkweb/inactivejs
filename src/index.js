@@ -25,8 +25,8 @@ class inactivejs {
 
         this._isAway = false;
         this._started = false;
-        this._checkIdle = !! (options.onAway && options.onBack);
-        this._checkVisibility = !! (options.onVisible && options.onHidden);
+        this._checkIdle = !! (options.onAway || options.onBack);
+        this._checkVisibility = !! (options.onVisible || options.onHidden);
 
         this._visibilityEvent = () => this._visibilityChange();
 
