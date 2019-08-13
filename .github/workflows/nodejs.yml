@@ -4,24 +4,22 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [8, 10, 12]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@master
-
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@master
       with:
-        version: 10.x
+        version: ${{ matrix.node_version }}
 
-    - name: Yarn Install
-      uses: Borales/actions-yarn@1.1.0
-      args: install
-
-    - name: Yarn Dev
-      uses: Borales/actions-yarn@1.1.0
-      args: dev
-      
-    - name: Yarn Lint
-      uses: Borales/actions-yarn@1.1.0
-      args: lint
+    - name: yarn install, build and lint
+      run: |
+        yarn install
+        yarn dev
+        yarn lint
